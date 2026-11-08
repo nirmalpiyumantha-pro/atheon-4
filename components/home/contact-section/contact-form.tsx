@@ -1,6 +1,7 @@
 "use client"
 
-import { useActionState, useEffect } from "react"
+import { Suspense, useActionState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import { sendEmail, State } from "@/app/actions/email"
 import { cn } from "@/lib/utils"
 import { toast } from "sonner"
@@ -16,6 +17,35 @@ const initialState = {
 
 type Props = {
   className?: string
+}
+
+function EnquirySelect({ value }: { value: string }) {
+  return (
+    <select
+      id="enquiry_option"
+      name="enquiry_option"
+      value={value}
+      onChange={(event) => {
+        const url = new URL(window.location.href)
+        url.searchParams.set("enquiry", event.target.value)
+        window.history.replaceState(null, "", url)
+      }}
+      required
+      className="w-full min-w-0 rounded-md border border-blue-100 bg-white px-4 py-3 text-sm text-gray-900 focus:border-blue-600 focus:outline-2 focus:outline-blue-100 focus:outline-offset-1"
+    >
+      {enquiryOptions.map((option) => (
+        <option key={option.value} value={option.value}>
+          {option.label}
+        </option>
+      ))}
+    </select>
+  )
+}
+
+function ContactEnquiry() {
+  const requested = useSearchParams().get("enquiry")
+  const value = enquiryOptions.find((option) => option.value === requested)?.value
+  return <EnquirySelect value={value ?? "general"} />
 }
 
 export function ContactForm({ className }: Props) {
@@ -61,19 +91,9 @@ export function ContactForm({ className }: Props) {
             What are you interested in?
           </label>
 
-          <select
-            id="enquiry_option"
-            name="enquiry_option"
-            defaultValue="general"
-            required
-            className="w-full min-w-0 rounded-md border border-blue-100 bg-white px-4 py-3 text-sm text-gray-900 focus:border-blue-600 focus:outline-2 focus:outline-blue-100 focus:outline-offset-1"
-          >
-            {enquiryOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
+          <Suspense fallback={<EnquirySelect value="general" />}>
+            <ContactEnquiry />
+          </Suspense>
 
           {state.errors?.enquiry_option?.[0] && (
             <p className="text-sm text-red-500 w-full">

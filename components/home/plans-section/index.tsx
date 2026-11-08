@@ -2,7 +2,7 @@
 
 import { ArrowUpRightIcon } from "lucide-react"
 import Container from "@/components/container"
-import Link from "next/link"
+import ContactLink from "@/components/contact-link"
 import { useRef } from "react"
 import { useSectionAnimation } from "@/hooks/use-section-animation"
 import SectionHeading from "@/components/section-heading"
@@ -76,7 +76,7 @@ export function Index() {
         ref={plansRef}
         className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2"
       >
-        {plansData.map(({ id, label, title, description, features, cta }) => (
+        {plansData.map(({ id, label, title, description, features, cta, interest }) => (
           <article
             key={id}
             className="flex min-w-0 flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8"
@@ -101,12 +101,12 @@ export function Index() {
                 </div>
               ))}
             </dl>
-            <Link href="/#contact-us" className="mt-auto">
+            <ContactLink enquiry={interest} className="mt-auto">
               <button className="group rounded-sm px-4 py-3 bg-blue-600 text-sm font-medium cursor-pointer text-white flex items-center justify-center gap-2 w-full">
                 {cta}
                 <ArrowUpRightIcon className="size-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </button>
-            </Link>
+            </ContactLink>
           </article>
         ))}
       </div>
@@ -118,12 +118,12 @@ export function Index() {
             Tell us about your setup. We’ll help you choose.
           </p>
         </div>
-        <Link href="/#contact-us" className="mt-auto">
+        <ContactLink enquiry="general" className="mt-auto">
           <button className="group rounded-sm px-4 py-3 text-blue-600 text-sm cursor-pointer bg-white flex items-center justify-center gap-2 w-full">
             Help me choose
             <ArrowUpRightIcon className="size-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
           </button>
-        </Link>
+        </ContactLink>
       </div>
 
       <p className="mt-5 max-w-4xl text-xs leading-relaxed text-gray-700">

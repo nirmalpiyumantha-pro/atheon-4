@@ -4,6 +4,7 @@ export type Plan = {
   title: string
   description: string
   features: Array<Array<string>>
+  interest: "managed" | "infrastructure"
   cta: string
 }
 
@@ -20,6 +21,7 @@ export const plansData: Plan[] = [
       ["Maintenance", "Ongoing care through your subscription"],
       ["Support", "Coverage agreed in your plan"],
     ],
+    interest: "managed",
     cta: "Discuss a managed plan",
   },
   {
@@ -34,6 +36,7 @@ export const plansData: Plan[] = [
       ["Maintenance", "Responsibilities agreed with your team"],
       ["Support", "An optional, separately agreed arrangement"],
     ],
+    interest: "infrastructure",
     cta: "Discuss your deployment",
   },
 ]

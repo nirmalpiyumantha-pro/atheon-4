@@ -2,6 +2,7 @@
 
 import { navItemsData } from "@/lib/nav-items-data"
 import Link from "next/link"
+import ContactLink from "@/components/contact-link"
 import Image from "next/image"
 import logo from "@/assets/images/logo.png"
 import { useEffect, useState, MouseEvent } from "react"
@@ -81,12 +82,12 @@ export default function Navbar() {
           ))}
         </ul>
         <div className="flex gap-3 items-center">
-          <Link href="/#contact-us">
+          <ContactLink enquiry="general">
             <button className="group hidden sm:block rounded-sm px-4 py-3 bg-blue-600 font-semibold text-sm cursor-pointer text-white sm:flex items-center gap-2">
               Discuss Your Project
               <ArrowUpRightIcon className="size-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </button>
-          </Link>
+          </ContactLink>
           {isMobile && (
             <button
               type="button"

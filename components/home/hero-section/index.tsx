@@ -2,6 +2,7 @@
 
 import Container from "@/components/container"
 import Link from "next/link"
+import ContactLink from "@/components/contact-link"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { useRef, useState } from "react"
@@ -97,12 +98,12 @@ export function Index() {
               className="flex flex-col md:flex-row gap-2 md:gap-4 flex-1 mt-4 md:mt-6"
               ref={ctaRef}
             >
-              <Link href="/#contact-us">
+              <ContactLink enquiry="demo">
                 <button className="group rounded-sm px-4 py-3 bg-blue-600 text-sm font-medium cursor-pointer text-white flex items-center justify-center gap-2 w-full">
                   Book a Demo
                   <ArrowUpRightIcon className="size-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </button>
-              </Link>
+              </ContactLink>
               <Link href="#">
                 <button
                   className="group rounded-sm px-4 py-3 ring-blue-600 ring-2 ring-inset text-sm font-medium cursor-pointer text-blue-600 flex items-center justify-center gap-2 w-full"

@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { ArrowUpRightIcon } from "lucide-react"
-import Link from "next/link"
+import ContactLink from "@/components/contact-link"
 import Container from "@/components/container"
 import illustration from "@/assets/images/atheon-agent-capabilities.webp"
 import { useRef } from "react"
@@ -106,14 +106,14 @@ export function Index() {
             headingRef={headingRef}
             subHeadingRef={subHeadingRef}
           />
-          <Link
+          <ContactLink
             ref={buttonRef}
-            href="/#contact-us"
+            enquiry="agent"
             className="mt-6 group inline-flex items-center justify-center gap-2 rounded-md bg-blue-600 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-700"
           >
             Discuss Your AI Agent
             <ArrowUpRightIcon className="size-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </Link>
+          </ContactLink>
         </div>
 
         <figure className="min-w-0">

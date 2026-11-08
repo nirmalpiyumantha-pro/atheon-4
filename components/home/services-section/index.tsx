@@ -9,7 +9,7 @@ import { ArrowUpRightIcon, Maximize2Icon } from "lucide-react"
 import Container from "@/components/container"
 import { capabilitiesData } from "@/lib/capabilities-data"
 import { servicesData } from "@/lib/services-data"
-import Link from "next/link"
+import ContactLink from "@/components/contact-link"
 import { cn } from "@/lib/utils"
 import SectionHeading from "@/components/section-heading"
 import { useSectionAnimation } from "@/hooks/use-section-animation"
@@ -157,13 +157,13 @@ export function Index() {
                 <p className="mt-6 border-t border-gray-200 pt-5 text-sm font-medium text-black">
                   {service.outcome}
                 </p>
-                <Link
-                  href="/#contact-us"
+                <ContactLink
+                  enquiry={service.interest}
                   className="text-blue-600 flex items-center hover:underline hover:underline-offset-4 text-sm mt-6 gap-2"
                 >
                   Discuss a similar workflow
                   <ArrowUpRightIcon className="size-4" />
-                </Link>
+                </ContactLink>
               </div>
 
               {/* Mobile image */}
