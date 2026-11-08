@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+:root {
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --border: #e5e5e5;
+  --radius: 0.625rem;
+}
+
+@theme inline {
+  --font-inter: 'Inter', sans-serif;
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+html {
+  font-family: var(--font-inter), sans-serif;
+}
