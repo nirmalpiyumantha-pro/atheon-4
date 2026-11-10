@@ -1,3 +1,5 @@
+import '@n8n/chat/style.css';
+import ChatWidget from './ChatWidget';
 import type { Metadata } from "next"
 import { inter } from "@/app/fonts"
 import "./globals.css"
@@ -44,6 +46,7 @@ export default function RootLayout({
           </div>
         </a>
         <Footer />
+        <ChatWidget />
       </body>
     </html>
   )
