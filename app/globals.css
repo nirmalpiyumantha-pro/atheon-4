@@ -23,3 +23,33 @@
 html {
   font-family: var(--font-inter), sans-serif;
 }
+/* Atheon chat widget */
+#n8n-chat {
+  --chat--color--primary: #155dfc;
+  --chat--color--primary-shade-50: #1447e6;
+  --chat--color--primary--shade-100: #193cb8;
+  --chat--color--secondary: #155dfc;
+
+  --chat--header--background: #ffffff;
+  --chat--header--color: #0f172a;
+  --chat--heading--font-size: 1.25rem;
+
+  --chat--body--background: #f1f5fb;
+  --chat--footer--background: #ffffff;
+
+  --chat--message--bot--background: #eaf2ff;
+  --chat--message--bot--color: #0f172a;
+  --chat--message--user--background: #155dfc;
+  --chat--message--user--color: #ffffff;
+  --chat--message--border-radius: 14px;
+
+  --chat--window--border-radius: 20px;
+  --chat--window--height: min(560px, calc(100dvh - 210px));
+  --chat--window--width: min(390px, calc(100vw - 32px));
+  --chat--window--bottom: 112px;
+
+  --chat--toggle--background: #155dfc;
+  --chat--toggle--hover--background: #1447e6;
+  --chat--toggle--active--background: #193cb8;
+  --chat--toggle--color: #ffffff;
+}
